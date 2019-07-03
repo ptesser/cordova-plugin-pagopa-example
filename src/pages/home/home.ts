@@ -16,6 +16,7 @@ export class HomePage {
   }
 
   startPaymentHandler() {
+    console.log('[home.ts] startPaymentHandler');
     this.pagoPAProvide.startPayment('1')
       .then((success) => {
         alert(success);

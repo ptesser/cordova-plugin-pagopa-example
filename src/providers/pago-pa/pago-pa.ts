@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Plugin, Cordova } from '@ionic-native/core';
+import { Plugin, Cordova, IonicNativePlugin, CordovaCheck } from '@ionic-native/core';
 
 @Plugin({
   pluginName: "PagoPA",
@@ -9,13 +9,17 @@ import { Plugin, Cordova } from '@ionic-native/core';
   platforms: ["Android", "iOS"],
 })
 @Injectable()
-export class PagoPaProvider {
+export class PagoPaProvider extends IonicNativePlugin {
 
   constructor() {
+    super();
+    console.log('[pago-pa.ts] Init');
   }
 
   @Cordova()
+  @CordovaCheck()
   startPayment(paymentId: string): Promise<any> {
+    console.log('[pago-pa.ts] Method startPayment is available in the plugin');
     return;
   }
 }
